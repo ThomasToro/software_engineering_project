@@ -1,0 +1,45 @@
+
+services:
+  backend:
+    container_name: backend-nestjs
+    build:
+      context: ./backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/your-db-name
+    depends_on:
+      - mongo
+    networks:
+      - app-network  # Usa la misma red para backend y frontend
+
+  frontend:
+    container_name: frontend-angular
+    build:
+      context: ./frontend
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
+    networks:
+      - app-network  # Usa la misma red para frontend y backend
+
+  mongo:
+    container_name: mongo-db
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - app-network  # Usa la misma red para mongo, backend y frontend
+
+volumes:
+  mongo-data:
+
+networks:
+  app-network:  # Define una red común
+    driver: bridge
