@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import { HotelModule } from './hotel/hotel.module';
 
 @Module({
   imports: [ConfigModule.forRoot({
@@ -15,7 +16,7 @@ import { MongooseModule } from '@nestjs/mongoose';
     useFactory: async (configService: ConfigService) => ({
       uri: configService.get('MONGODB_URI'),
     }),
-  }),],
+  }), HotelModule,],
   controllers: [AppController],
   providers: [AppService],
 })
