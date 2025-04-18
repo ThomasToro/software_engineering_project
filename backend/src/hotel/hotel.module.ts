@@ -11,6 +11,4 @@ import { Hotel, HotelSchema } from './schema/hotel.schema';
     MongooseModule.forFeature([{ name: Hotel.name, schema: HotelSchema }]),
   ],
 })
-export class HotelModule {
-
-}
+export class HotelModule {}
