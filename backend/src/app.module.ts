@@ -1,10 +1,7 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { HotelModule } from './hotel/hotel.module';
-import { SearchModule } from './search/search.module';
 
 @Module({
   imports: [ConfigModule.forRoot({
@@ -17,8 +14,9 @@ import { SearchModule } from './search/search.module';
     useFactory: async (configService: ConfigService) => ({
       uri: configService.get('MONGODB_URI'),
     }),
-  }), HotelModule,SearchModule],
+  }), HotelModule,],
   controllers: [AppController],
   providers: [AppService],
 })
+
 export class AppModule {}
