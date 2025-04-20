@@ -30,7 +30,7 @@ export class Reservation {
     @Prop({ required: true })
     days: number;
 
-    @Prop({ enum: ReservationStatus, default: ReservationStatus.Confirmed })
+    @Prop({ enum: ReservationStatus, default: ReservationStatus.Pending })
     status: ReservationStatus;
 }
 
