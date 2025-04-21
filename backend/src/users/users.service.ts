@@ -12,7 +12,7 @@ import * as bcrypt from 'bcrypt';
 @Injectable()
 export class UsersService implements UserServiceInterface{
     constructor( 
-        @InjectModel(SchemaUser.name) private userModel: Model<UserDocument>,
+        @InjectModel(User.name) private userModel: Model<UserDocument>,
         private jwtService: JwtService,
         private configService: ConfigService,
         //private emailService: EmailService,
