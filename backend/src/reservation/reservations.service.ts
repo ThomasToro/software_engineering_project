@@ -42,6 +42,10 @@ export class ReservationsService {
 
     //debemos de mostrar TODAS las reservaciones con su status...
     async getAllReservations(){
-        
+        try {
+            return await this.reservationModel.find().exec();
+
+        } catch (error) {
+            throw new BadRequestException("Error fetching reservations: "+error.message)}
     }
 }

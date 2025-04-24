@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, Get } from '@nestjs/common';
 import { ReservationsService } from './reservations.service';
 import { ReservartionDto } from './dto/reservation.dto';
 
@@ -9,7 +9,12 @@ export class ReservationsController {
 
     @Post()
     reservation(@Body() reservationDto: ReservartionDto ){
-        // return this.reservationsService
+        return this.reservationsService.reservate(reservationDto);
     }
     
+
+    @Get()
+    getAllReservations(){
+        return this.reservationsService.getAllReservations();
+    }
 }

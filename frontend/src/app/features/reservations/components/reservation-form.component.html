@@ -1,0 +1,7 @@
+<form (ngSubmit)="submit()">
+    <input [(ngModel)]="reservation.roomId" name="roomId" placeholder="ID de habitación" required />
+    <input type="date" [(ngModel)]="reservation.checkIn" name="checkIn" required />
+    <input type="date" [(ngModel)]="reservation.checkOut" name="checkOut" required />
+    <input [(ngModel)]="reservation.userId" name="userId" placeholder="ID de usuario" required />
+    <button type="submit">Reservar</button>
+</form>
