@@ -27,7 +27,7 @@ export class Reservation {
     @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'User', required: true })
     userId: MongooseSchema.Types.ObjectId;
 
-    @Prop({ required: true })
+    @Prop({ required: false })
     days: number;
 
     @Prop({ enum: ReservationStatus, default: ReservationStatus.Pending })

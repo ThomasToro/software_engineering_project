@@ -1,28 +1,31 @@
-import { Component } from '@angular/core';
-import { ReservationService } from '../../../core/services/reservation.service';
 import { CommonModule } from '@angular/common';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-reservation-form',
-  imports: [CommonModule,FormsModule],
   templateUrl: './reservation-form.component.html',
-  styleUrl: './reservation-form.component.scss'
+  styleUrls: ['./reservation-form.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule,   // <-- agrega esto aquí
+    // otros módulos...
+  ]
 })
 export class ReservationFormComponent {
   reservation = {
     roomId: '',
     checkIn: '',
     checkOut: '',
-    userId: ''
+    userId: '',
   };
 
-  constructor(private reservationService: ReservationService) {}
+  // Este es el decorador @Output que emite el evento hacia el componente padre
+  @Output() submitReservation = new EventEmitter<any>();
 
   submit() {
-    this.reservationService.makeReservation(this.reservation).subscribe({
-      next: (res) => console.log('Reservado:', res),
-      error: (err) => console.error('Error:', err)
-    });
+    // Al hacer submit, emitimos los datos del formulario al componente padre
+    this.submitReservation.emit(this.reservation);
   }
 }

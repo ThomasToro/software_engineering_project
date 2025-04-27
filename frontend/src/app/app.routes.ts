@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-{
+    {
     
     path: 'reservations',
     loadChildren: () =>
@@ -9,5 +9,12 @@ export const routes: Routes = [
         (m) => m.reservationsRoutes
         ),
     },
+    {
+    path: 'users',
+    loadChildren: () =>
+      import('./features/users/user.routes').then(
+        (m) => m.userRoutes
+      )
+    }
   // otras rutas si tienes...
 ];

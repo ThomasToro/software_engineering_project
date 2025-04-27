@@ -77,6 +77,8 @@ import { Public } from './decorators/public.decorator';
     
     
     @UseGuards(JwtAuthGuard)
+    @Public()
+
     @Get(':id')
     findOne(@Param('id') id: string) {
       return this.usersService.findOne(id);

@@ -5,5 +5,11 @@ export const reservationsRoutes: Routes = [
   {
     path: '',
     component: ReservationsPageComponent,
+    // children:[
+    //   {
+    //     path:''
+    //   }
+      
+    // ]
   }
 ];

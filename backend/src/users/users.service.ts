@@ -7,6 +7,7 @@ import { ConfigService } from '@nestjs/config';
 import { Model } from 'mongoose';
 import { CreateUserDto, LoginDto } from './dto/user.dto';
 import * as bcrypt from 'bcrypt';
+import { Public } from './decorators/public.decorator';
 
 
 @Injectable()
@@ -95,6 +96,7 @@ export class UsersService implements UserServiceInterface{
         return users.map(user => user);
       }
     
+      @Public()
       async findOne(id: string): Promise<User> {
         const user = await this.userModel.findById(id).exec();
         if (!user) {

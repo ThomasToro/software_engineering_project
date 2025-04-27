@@ -5,8 +5,8 @@ import { HotelModule } from './hotel/hotel.module';
 import { SearchModule } from './search/search.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { User } from './users/schema/user.schema';
 import { UsersModule } from './users/users.module';
+import { ReservationsModule } from './reservation/reservations.module';
 
 @Module({
   imports: [ConfigModule.forRoot({
@@ -19,7 +19,7 @@ import { UsersModule } from './users/users.module';
     useFactory: async (configService: ConfigService) => ({
       uri: configService.get('MONGODB_URI'),
     }),
-  }), HotelModule,SearchModule, UsersModule],
+  }), HotelModule,SearchModule, UsersModule, ReservationsModule],
   controllers: [AppController],
   providers: [AppService],
 })

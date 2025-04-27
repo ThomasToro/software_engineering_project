@@ -1,7 +1,4 @@
 <h2>Reservar habitación</h2>
-<app-reservation-form></app-reservation-form>
 
-<hr />
-
-<h3>Mis Reservas</h3>
-<app-reservation-card *ngFor="let res of [1,2,3]"></app-reservation-card>
+<!-- Aquí vinculamos el evento submitReservation al método onReservationSubmit del componente padre -->
+<app-reservation-form (submitReservation)="onReservationSubmit($event)"></app-reservation-form>

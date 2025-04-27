@@ -1,0 +1,17 @@
+<h1>Perfil de Usuario</h1>
+<app-profile-card [user]="user"></app-profile-card>
+
+<hr />
+<button (click)="toggleLista()">Mostrar/Ocultar Lista</button>
+<ul *ngIf="showList">
+    <li *ngFor="let reservation of reservations">
+      <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+        <p>Check-in: {{ reservation.checkIn | date:'short' }}</p>        
+        <p>Check-out: {{ reservation.checkOut | date:'short' }}</p>        
+        <strong>Habitación:</strong> {{ reservation.roomId }}<br>
+        <strong>Estado:</strong> {{ reservation.status }}<br>
+        <strong>Usuario:</strong> {{ reservation.userId }}
+      </div>
+    </li>
+  </ul>
+  
