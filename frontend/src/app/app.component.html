@@ -1,9 +1,10 @@
-<main class="main">
-  <h1>Bienvenido a Mi App de Reservas</h1>
-  <p>Selecciona una opción del menú para comenzar.</p>
-  <nav>
-    <a routerLink="/hotels" class="pill">Hoteles</a>
-    <a routerLink="/reservations" class="pill">Reservas</a>
-  </nav>
-  <router-outlet></router-outlet>
-</main>
+<!-- src/app/app.component.html -->
+<nav>
+  <a routerLink="/searchs" routerLinkActive="active">Buscar Hoteles</a> |
+  <a routerLink="/reservations" routerLinkActive="active">Mis Reservas</a> |
+  <a routerLink="/users" routerLinkActive="active">Mi Perfil</a>
+</nav>
+
+<hr />
+
+<router-outlet></router-outlet>

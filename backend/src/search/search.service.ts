@@ -74,21 +74,21 @@ export class SearchService {
         }
     }
 
-
-    return availableRooms;
+    return availableRooms.map(room => {
+        const r = room.toObject(); // Esto ya lo convierte a objeto plano
+        return {
+            id: r._id.toString(),
+            name: r.name,
+            price: r.price,
+            capacity: r.capacity,
+            type: r.type,
+            availability: r.availability,
+            hotel: r.hotelId,
+        };
+    });
+    
     }
 }
 
 
         
-// export class SearchHotelDto{
-//     location?: string;
-//     minPrice?: number;
-//     maxPrice?: number;
-//     roomType?: string;//podemos mandar un ENUM directamente en el front para 
-//                      //evitar redundancias
-
-//     checkIn?: Date;
-//     checkOut?: Date;
-// }
-

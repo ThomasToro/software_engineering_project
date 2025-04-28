@@ -1,20 +1,21 @@
+// app.routes.ts
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-    {
-    
-    path: 'reservations',
-    loadChildren: () =>
-        import('./features/reservations/reservations.routes').then(
-        (m) => m.reservationsRoutes
-        ),
-    },
-    {
+  {
     path: 'users',
-    loadChildren: () =>
-      import('./features/users/user.routes').then(
-        (m) => m.userRoutes
-      )
-    }
-  // otras rutas si tienes...
+    loadComponent: () => 
+      import('./features/users/pages/user-page.component').then(m => m.UserPageComponent),
+  },
+  {
+    path: 'reservations',
+    loadComponent: () => 
+      import('./features/reservations/pages/reservations-page.component').then(m => m.ReservationsPageComponent),
+  },
+  {
+    path: 'searchs',
+    loadComponent: () => 
+      import('./features/searchs/pages/searchs-page.component').then(m => m.SearchsPageComponent),
+  },
+  { path: '', redirectTo: 'searchs', pathMatch: 'full' }, // Ruta por defecto
 ];

@@ -7,7 +7,8 @@ import { CommonModule } from '@angular/common';
   selector: 'app-profile-card',
   imports: [CommonModule, FormsModule],
   templateUrl: './profile-card.component.html',
-  styleUrl: './profile-card.component.scss'
+  styleUrl: './profile-card.component.scss',
+  standalone: true,
 })
 export class ProfileCardComponent {
   @Input() user: User | null = null; // Inicializamos el usuario como nulo

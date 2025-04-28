@@ -12,9 +12,10 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-user-page',
-  imports: [ProfileCardComponent,ReservationCardComponent,CommonModule, FormsModule],
+  imports: [ProfileCardComponent,CommonModule, FormsModule],
   templateUrl: './user-page.component.html',
-  styleUrl: './user-page.component.scss'
+  styleUrl: './user-page.component.scss',
+  standalone: true,
 })
 export class UserPageComponent implements OnInit {
   showList = false;

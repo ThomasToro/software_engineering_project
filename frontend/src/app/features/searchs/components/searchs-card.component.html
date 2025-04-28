@@ -1,0 +1,16 @@
+<form (ngSubmit)="submit()" #searchForm="ngForm">
+    <input [(ngModel)]="filters.location" name="location" placeholder="Ubicación" />
+    <input type="number" [(ngModel)]="filters.minPrice" name="minPrice" placeholder="Precio mínimo" />
+    <input type="number" [(ngModel)]="filters.maxPrice" name="maxPrice" placeholder="Precio máximo" />
+    
+    <select [(ngModel)]="filters.roomType" name="roomType">
+      <option [value]="roomType" *ngFor="let roomType of roomTypes">{{ roomType }}</option>
+    </select>
+  
+    <input type="date" [(ngModel)]="filters.checkIn" name="checkIn" />
+    <input type="date" [(ngModel)]="filters.checkOut" name="checkOut" />
+    <input [(ngModel)]="filters.hotelId" name="hotelId" placeholder="ID del hotel" />
+  
+    <button type="submit">Buscar habitaciones</button>
+  </form>
+  

@@ -1,0 +1,16 @@
+<p>Buscar habitaciones:</p>
+
+<app-searchs-card (searchSubmitted)="onSearch($event)"></app-searchs-card>
+
+<div *ngIf="rooms.length > 0; else noRooms">
+  <h3>Resultados:</h3>
+  <ul>
+    <li *ngFor="let room of rooms">
+      🏨 {{ room.name }} - 💵 {{ room.price }} - 🛌 {{ room.type }} - 👥 Capacidad: {{ room.capacity }}
+    </li>
+  </ul>
+</div>
+
+<ng-template #noRooms>
+  <p>No hay habitaciones disponibles.</p>
+</ng-template>

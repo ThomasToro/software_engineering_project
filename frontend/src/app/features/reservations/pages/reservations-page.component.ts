@@ -2,14 +2,13 @@ import { Component } from '@angular/core';
 import { ReservationService } from '../../../core/services/reservation.service';
 import { CommonModule } from '@angular/common';
 import { ReservationFormComponent } from '../components/reservation-form.component';
-import { ReservationCardComponent } from '../components/reservation-card.component';
 
 @Component({
   selector: 'app-reservations-page',
   templateUrl: './reservations-page.component.html',
   styleUrls: ['./reservations-page.component.scss'],
   standalone: true,
-  imports: [CommonModule, ReservationFormComponent, ReservationCardComponent]
+  imports: [CommonModule, ReservationFormComponent]
 
 })
 export class ReservationsPageComponent {
